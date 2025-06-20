@@ -56,7 +56,7 @@ A divisão em camadas ajuda a separar os dados por nível de tratamento, facilit
 
 ---
 
-🧪 Validações e Testes
+## 🧪 Validações e Testes
 Validação de Schema em todas as camadas
 
 Testes de Integração entre camadas:
@@ -69,17 +69,20 @@ Validação de IDs presentes entre camadas
 
 ---
 
-📊 Integração com Power BI
-Conexão via conector nativo “Azure Databricks”
+## 📊 Integração com Power BI
+Conexão via conector nativo “Databricks”
 
-Autenticação via Token Pessoal
+Autenticação via JDBC/ODBC
+-> Server Hostname + HTTP Path
 
 Consumo direto da camada Gold com tabelas otimizadas em Delta
+
 ---
 
 ## 🗂️ Versionamento e GitHub
 
 Este projeto utiliza Git para versionamento de código e controle de mudanças.
+
 ---
 
 ## 📁 Estrutura do Repositório

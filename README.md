@@ -16,8 +16,6 @@ A divisão em camadas ajuda a separar os dados por nível de tratamento, facilit
 - **Fonte:** Arquivos `.csv` armazenados em bucket S3.
 - **Transformações:** Nenhuma ou mínimas (ex: adição de timestamp de carga).
 - **Formato:** Delta Lake (`.delta`)
-- **Exemplo:**  
-  `s3a://grao-direto-mmk/bronze/grain_logistic_shipping`
 
 
 ---
@@ -47,28 +45,53 @@ A divisão em camadas ajuda a separar os dados por nível de tratamento, facilit
 
 ---
 
-## 🔗 Tecnologias utilizadas
+## 🔧 Tecnologias Utilizadas
 
-- **Databricks (na AWS)** – Engine de processamento e gerenciamento de pipelines.
-- **AWS S3** – Data Lake para armazenamento escalável.
-- **Delta Lake** – Formato de dados transacional (ACID).
-- **PySpark** – Transformações e lógica de dados.
-- **Unity Catalog** – Governança e controle de acesso (Databricks).
-
----
-
-## 🚨 Observações
-
-- Os dados das camadas Bronze, Silver e Gold são armazenados em **pastas separadas dentro de um bucket dedicado no S3**.
-- O Unity Catalog gerencia os metadados e impede acesso direto a arquivos internos. Toda consulta deve ser feita via tabelas.
+- **Databricks (Premium)**
+- **AWS S3**
+- **Delta Lake**
+- **PySpark**
+- **Unity Catalog**
+- **Power BI (consumo final)**
 
 ---
 
-## 📁 Estrutura no S3
+🧪 Validações e Testes
+Validação de Schema em todas as camadas
+
+Testes de Integração entre camadas:
+
+Contagem de registros
+
+Checagem de duplicatas
+
+Validação de IDs presentes entre camadas
+
+---
+
+📊 Integração com Power BI
+Conexão via conector nativo “Azure Databricks”
+
+Autenticação via Token Pessoal
+
+Consumo direto da camada Gold com tabelas otimizadas em Delta
+---
+
+## 🗂️ Versionamento e GitHub
+
+Este projeto utiliza Git para versionamento de código e controle de mudanças.
+---
+
+## 📁 Estrutura do Repositório
 
 ```bash
-grao-direto-mmk/
-├── raw/
 ├── bronze/
+│   └── Bronze_GD.ipynb
 ├── silver/
-└── gold/
+│   └── Silver_GD.ipynb
+├── gold/
+│   └── Gold_GD.ipynb
+└── README.md
+```
+
+
